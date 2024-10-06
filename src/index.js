@@ -37,7 +37,7 @@ function clone(source) {
     // 處理邊界條件
     if (source === undefined) return undefined; // 返回 undefined
     if (source === null) return null; // 返回 null
-    
+
     const t = type(source);
     if (t !== 'object' && t !== 'array') {
         return source;
@@ -72,5 +72,16 @@ function type(val) {
     }
 }
 
+function getUrlParam(key) {
+    const query = location.search[0] === '?' ? location.search.slice(1) : location.search;
+    const map = query.split("&").reduce((acc, data) => {
+        const arr = data.split("=");
+        acc[arr[0]] = arr[1];
+        return acc;
+    }, {});
+
+    return map[key];
+}
+
 // 使用 module.exports 來導出函數
-module.exports = { clone, type };
+module.exports = { clone, type, getUrlParam };

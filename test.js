@@ -1,5 +1,7 @@
 var expect = require("expect.js");
 var clone = require("./src/index.js").clone;
+var getUrlParam = require("./src/index.js").getUrlParam;
+const JSDOM = require('mocha-jsdom');
 
 describe('function clone', function () {
     describe('param data', function () {
@@ -25,5 +27,12 @@ describe('function clone', function () {
             expect(clone(undefined)).to.equal(undefined);
             expect(clone(null)).to.equal(null);
         })
+    })
+})
+
+describe('獲取當前 URL 中的參數', function(){
+    JSDOM({url: 'https://***.com/?a=1'});
+    it('參數(id)的值', function(){
+        expect(getUrlParam('a')).to.be.equal('1');
     })
 })
