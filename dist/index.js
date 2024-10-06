@@ -36,6 +36,10 @@
 // }
 
 function clone(source) {
+    // 處理邊界條件
+    if (source === undefined) return undefined; // 返回 undefined
+    if (source === null) return null; // 返回 null
+    
     const t = type(source);
     if (t !== 'object' && t !== 'array') {
         return source;
