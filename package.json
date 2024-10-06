@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "scripts": {
     "test": "mocha",
     "build:cjs": "rollup -c config/rollup.config.js --bundleConfigAsCjs",
