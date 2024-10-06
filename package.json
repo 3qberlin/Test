@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "mocha",
+    "test": "nyc mocha",
     "build:cjs": "rollup -c config/rollup.config.js --bundleConfigAsCjs",
     "build:esm": "rollup -c config/rollup.config.esm.js --bundleConfigAsCjs",
     "build:umd": "rollup -c config/rollup.config.aio.js --bundleConfigAsCjs",
