@@ -1,7 +1,12 @@
-var expect = require("expect.js");
-var clone = require("./src/index.js").clone;
-var getUrlParam = require("./src/index.js").getUrlParam;
-const JSDOM = require('mocha-jsdom');
+// var expect = require("expect.js");
+// var clone = require("./src/index.js").clone;
+// var getUrlParam = require("./src/index.js").getUrlParam;
+// const JSDOM = require('mocha-jsdom');
+
+
+import expect from 'expect.js';
+import { clone, getUrlParam} from './src/index.js';
+import JSDOM from 'mocha-jsdom';
 
 describe('function clone', function () {
     describe('param data', function () {
