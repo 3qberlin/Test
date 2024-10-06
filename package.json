@@ -1,4 +1,7 @@
 {
+  "scripts": {
+     "test": "mocha"
+  },
   "devDependencies": {
     "expect.js": "^0.3.1",
     "mocha": "^10.7.3"
