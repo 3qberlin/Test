@@ -17,7 +17,7 @@
     "pupeteer": "^0.0.1",
     "rollup": "^4.24.0"
   },
-  "name": "test",
+  "name": "3qberlin",
   "version": "1.0.0",
   "main": "test.js",
   "dependencies": {
@@ -84,6 +84,7 @@
     "strip-ansi": "^6.0.1",
     "strip-json-comments": "^3.1.1",
     "supports-color": "^8.1.1",
+    "test": "github:3qberlin/Test",
     "to-regex-range": "^5.0.1",
     "workerpool": "^6.5.1",
     "wrap-ansi": "^7.0.0",
@@ -94,7 +95,7 @@
     "yargs-unparser": "^2.0.0",
     "yocto-queue": "^0.1.0"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "3qberlin",
+  "license": "MIT",
+  "description": "This is a deep cloning library for JavaScript."
 }
