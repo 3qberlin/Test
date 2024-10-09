@@ -5,7 +5,8 @@
     "build:esm": "rollup -c config/rollup.config.esm.js --bundleConfigAsCjs",
     "build:umd": "rollup -c config/rollup.config.aio.js --bundleConfigAsCjs",
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "npx eslint"
   },
   "devDependencies": {
     "@babel/register": "^7.0.0",
