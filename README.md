@@ -13,14 +13,14 @@ $ npm install clone
 如果使用 Node.js 環境
 
 ```js
-var { clone } = require("clone");
+var { clone } = require('clone');
 clnone({ a: 1 });
 ```
 
 如果使用 webpack 環境
 
 ```js
-import { clone } from "clone";
+import { clone } from 'clone';
 clone({ a: 1 });
 ```
 

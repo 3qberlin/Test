@@ -1,10 +1,10 @@
-import resolve from "@rollup/plugin-node-resolve";
+import resolve from '@rollup/plugin-node-resolve';
 
 module.exports = {
-  input: "src/index.js",
+  input: 'src/index.js',
   output: {
-    file: "dist/index.js",
-    format: "cjs",
+    file: 'dist/index.js',
+    format: 'cjs',
   },
   plugins: [resolve()],
 };
