@@ -7,8 +7,11 @@ import expect from 'expect.js';
 import { clone, getUrlParam } from './src/index.js';
 import JSDOM from 'mocha-jsdom';
 
+// eslint-disable-next-line no-undef
 describe('function clone', function () {
+  // eslint-disable-next-line no-undef
   describe('param data', function () {
+    // eslint-disable-next-line no-undef
     it('正確的測試使用案例', function () {
       // 基底資料型別
       expect(clone('abc')).to.equal('abc');
@@ -26,6 +29,7 @@ describe('function clone', function () {
       expect(cloneObj).to.eql(obj);
     });
 
+    // eslint-disable-next-line no-undef
     it('邊界值測試使用案例', function () {
       expect(clone()).to.equal(undefined);
       expect(clone(undefined)).to.equal(undefined);
@@ -34,8 +38,10 @@ describe('function clone', function () {
   });
 });
 
+// eslint-disable-next-line no-undef
 describe('獲取當前 URL 中的參數', function () {
   JSDOM({ url: 'https://***.com/?a=1' });
+  // eslint-disable-next-line no-undef
   it('參數(id)的值', function () {
     expect(getUrlParam('a')).to.be.equal('1');
   });

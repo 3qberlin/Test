@@ -29,16 +29,16 @@ function clone(source) {
   if (source === undefined) return undefined; // 返回 undefined
   if (source === null) return null; // 返回 null
   const t = type(source);
-  if (t !== "object" && t !== "array") {
+  if (t !== 'object' && t !== 'array') {
     return source;
   }
 
   let target;
 
-  if (t === "object") {
+  if (t === 'object') {
     target = {};
     for (let i in source) {
-      if (source.hasOwnProperty(i)) {
+      if (Object.prototype.hasOwnProperty.call(source, i)) {
         target[i] = clone(source[i]);
       }
     }
@@ -55,9 +55,9 @@ function clone(source) {
 
 function type(val) {
   if (Array.isArray(val)) {
-    return "array";
-  } else if (val !== null && typeof val === "object") {
-    return "object";
+    return 'array';
+  } else if (val !== null && typeof val === 'object') {
+    return 'object';
   } else {
     return typeof val;
   }
@@ -65,9 +65,9 @@ function type(val) {
 
 function getUrlParam(key) {
   const query =
-    location.search[0] === "?" ? location.search.slice(1) : location.search;
-  const map = query.split("&").reduce((acc, data) => {
-    const arr = data.split("=");
+    location.search[0] === '?' ? location.search.slice(1) : location.search;
+  const map = query.split('&').reduce((acc, data) => {
+    const arr = data.split('=');
     acc[arr[0]] = arr[1];
     return acc;
   }, {});
