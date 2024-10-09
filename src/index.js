@@ -26,52 +26,53 @@
 // }
 
 export function clone(source) {
-    if (source === undefined) return undefined; // 返回 undefined
-    if (source === null) return null; // 返回 null
-    const t = type(source);
-    if (t !== 'object' && t !== 'array') {
-        return source;
-    }
+  if (source === undefined) return undefined; // 返回 undefined
+  if (source === null) return null; // 返回 null
+  const t = type(source);
+  if (t !== "object" && t !== "array") {
+    return source;
+  }
 
-    let target;
+  let target;
 
-    if (t === 'object') {
-        target = {};
-        for (let i in source) {
-            if (source.hasOwnProperty(i)) {
-                target[i] = clone(source[i]);
-            }
-        }
-    } else { // When t is 'array'
-        target = [];
-        for (let i = 0; i < source.length; i++) {
-            target[i] = clone(source[i]);
-        }
+  if (t === "object") {
+    target = {};
+    for (let i in source) {
+      if (source.hasOwnProperty(i)) {
+        target[i] = clone(source[i]);
+      }
     }
-    
-    return target; // Return the cloned object or array here
+  } else {
+    // When t is 'array'
+    target = [];
+    for (let i = 0; i < source.length; i++) {
+      target[i] = clone(source[i]);
+    }
+  }
+
+  return target; // Return the cloned object or array here
 }
 
-
 export function type(val) {
-    if (Array.isArray(val)) {
-        return 'array';
-    } else if (val !== null && typeof val === 'object') {
-        return 'object';
-    } else {
-        return typeof val;
-    }
+  if (Array.isArray(val)) {
+    return "array";
+  } else if (val !== null && typeof val === "object") {
+    return "object";
+  } else {
+    return typeof val;
+  }
 }
 
 export function getUrlParam(key) {
-    const query = location.search[0] === '?' ? location.search.slice(1) : location.search;
-    const map = query.split("&").reduce((acc, data) => {
-        const arr = data.split("=");
-        acc[arr[0]] = arr[1];
-        return acc;
-    }, {});
+  const query =
+    location.search[0] === "?" ? location.search.slice(1) : location.search;
+  const map = query.split("&").reduce((acc, data) => {
+    const arr = data.split("=");
+    acc[arr[0]] = arr[1];
+    return acc;
+  }, {});
 
-    return map[key];
+  return map[key];
 }
 
 // function clone(source) {

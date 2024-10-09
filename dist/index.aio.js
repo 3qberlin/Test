@@ -1,140 +1,145 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.MyLibrary = {}));
-})(this, (function (exports) { 'use strict';
+  typeof exports === "object" && typeof module !== "undefined"
+    ? factory(exports)
+    : typeof define === "function" && define.amd
+      ? define(["exports"], factory)
+      : ((global =
+          typeof globalThis !== "undefined" ? globalThis : global || self),
+        factory((global.MyLibrary = {})));
+})(this, function (exports) {
+  "use strict";
 
-    // export function clone(source) {
-    //     if (source === undefined) return undefined; // 返回 undefined
-    //     if (source === null) return null; // 返回 null
-    //     const t = type(source);
-    //     if (t !== 'object' && t !== 'array') {
-    //         return source;
-    //     }
+  // export function clone(source) {
+  //     if (source === undefined) return undefined; // 返回 undefined
+  //     if (source === null) return null; // 返回 null
+  //     const t = type(source);
+  //     if (t !== 'object' && t !== 'array') {
+  //         return source;
+  //     }
 
-    //     let target;
+  //     let target;
 
-    //     if (t === 'object') {
-    //         target = {};
-    //         for (let i in source) {
-    //             if (source.hasOwnProperty(i)) {
-    //                 target[i] = clone(source[i]);
-    //             }
-    //         }
-    //     } else {
-    //         target = [];
+  //     if (t === 'object') {
+  //         target = {};
+  //         for (let i in source) {
+  //             if (source.hasOwnProperty(i)) {
+  //                 target[i] = clone(source[i]);
+  //             }
+  //         }
+  //     } else {
+  //         target = [];
 
-    //         for (let i = 0; i < source.length; i++) {
-    //             target[i] = clone(source[i]);
-    //         }
-    //         return target;
-    //     }
-    // }
+  //         for (let i = 0; i < source.length; i++) {
+  //             target[i] = clone(source[i]);
+  //         }
+  //         return target;
+  //     }
+  // }
 
-    function clone(source) {
-        if (source === undefined) return undefined; // 返回 undefined
-        if (source === null) return null; // 返回 null
-        const t = type(source);
-        if (t !== 'object' && t !== 'array') {
-            return source;
-        }
-
-        let target;
-
-        if (t === 'object') {
-            target = {};
-            for (let i in source) {
-                if (source.hasOwnProperty(i)) {
-                    target[i] = clone(source[i]);
-                }
-            }
-        } else { // When t is 'array'
-            target = [];
-            for (let i = 0; i < source.length; i++) {
-                target[i] = clone(source[i]);
-            }
-        }
-        
-        return target; // Return the cloned object or array here
+  function clone(source) {
+    if (source === undefined) return undefined; // 返回 undefined
+    if (source === null) return null; // 返回 null
+    const t = type(source);
+    if (t !== "object" && t !== "array") {
+      return source;
     }
 
+    let target;
 
-    function type(val) {
-        if (Array.isArray(val)) {
-            return 'array';
-        } else if (val !== null && typeof val === 'object') {
-            return 'object';
-        } else {
-            return typeof val;
+    if (t === "object") {
+      target = {};
+      for (let i in source) {
+        if (source.hasOwnProperty(i)) {
+          target[i] = clone(source[i]);
         }
+      }
+    } else {
+      // When t is 'array'
+      target = [];
+      for (let i = 0; i < source.length; i++) {
+        target[i] = clone(source[i]);
+      }
     }
 
-    function getUrlParam(key) {
-        const query = location.search[0] === '?' ? location.search.slice(1) : location.search;
-        const map = query.split("&").reduce((acc, data) => {
-            const arr = data.split("=");
-            acc[arr[0]] = arr[1];
-            return acc;
-        }, {});
+    return target; // Return the cloned object or array here
+  }
 
-        return map[key];
+  function type(val) {
+    if (Array.isArray(val)) {
+      return "array";
+    } else if (val !== null && typeof val === "object") {
+      return "object";
+    } else {
+      return typeof val;
     }
+  }
 
-    // function clone(source) {
-    //     // 處理邊界條件
-    //     if (source === undefined) return undefined; // 返回 undefined
-    //     if (source === null) return null; // 返回 null
+  function getUrlParam(key) {
+    const query =
+      location.search[0] === "?" ? location.search.slice(1) : location.search;
+    const map = query.split("&").reduce((acc, data) => {
+      const arr = data.split("=");
+      acc[arr[0]] = arr[1];
+      return acc;
+    }, {});
 
-    //     const t = type(source);
-    //     if (t !== 'object' && t !== 'array') {
-    //         return source;
-    //     }
+    return map[key];
+  }
 
-    //     let target;
+  // function clone(source) {
+  //     // 處理邊界條件
+  //     if (source === undefined) return undefined; // 返回 undefined
+  //     if (source === null) return null; // 返回 null
 
-    //     if (t === 'object') {
-    //         target = {};
-    //         for (let i in source) {
-    //             if (source.hasOwnProperty(i)) {
-    //                 target[i] = clone(source[i]);
-    //             }
-    //         }
-    //     } else {
-    //         target = [];
+  //     const t = type(source);
+  //     if (t !== 'object' && t !== 'array') {
+  //         return source;
+  //     }
 
-    //         for (let i = 0; i < source.length; i++) {
-    //             target[i] = clone(source[i]);
-    //         }
-    //     }
-    //     return target;
-    // }
+  //     let target;
 
-    // function type(val) {
-    //     if (Array.isArray(val)) {
-    //         return 'array';
-    //     } else if (val !== null && typeof val === 'object') {
-    //         return 'object';
-    //     } else {
-    //         return typeof val;
-    //     }
-    // }
+  //     if (t === 'object') {
+  //         target = {};
+  //         for (let i in source) {
+  //             if (source.hasOwnProperty(i)) {
+  //                 target[i] = clone(source[i]);
+  //             }
+  //         }
+  //     } else {
+  //         target = [];
 
-    // function getUrlParam(key) {
-    //     const query = location.search[0] === '?' ? location.search.slice(1) : location.search;
-    //     const map = query.split("&").reduce((acc, data) => {
-    //         const arr = data.split("=");
-    //         acc[arr[0]] = arr[1];
-    //         return acc;
-    //     }, {});
+  //         for (let i = 0; i < source.length; i++) {
+  //             target[i] = clone(source[i]);
+  //         }
+  //     }
+  //     return target;
+  // }
 
-    //     return map[key];
-    // }
+  // function type(val) {
+  //     if (Array.isArray(val)) {
+  //         return 'array';
+  //     } else if (val !== null && typeof val === 'object') {
+  //         return 'object';
+  //     } else {
+  //         return typeof val;
+  //     }
+  // }
 
-    // // 使用 module.exports 來導出函數
-    // module.exports = { clone, type, getUrlParam };
+  // function getUrlParam(key) {
+  //     const query = location.search[0] === '?' ? location.search.slice(1) : location.search;
+  //     const map = query.split("&").reduce((acc, data) => {
+  //         const arr = data.split("=");
+  //         acc[arr[0]] = arr[1];
+  //         return acc;
+  //     }, {});
 
-    exports.clone = clone;
-    exports.getUrlParam = getUrlParam;
-    exports.type = type;
+  //     return map[key];
+  // }
 
-}));
+  // // 使用 module.exports 來導出函數
+  // module.exports = { clone, type, getUrlParam };
+
+  exports.clone = clone;
+  exports.getUrlParam = getUrlParam;
+  exports.type = type;
+});
