@@ -1,5 +1,3 @@
-'use strict';
-
 // export function clone(source) {
 //     if (source === undefined) return undefined; // 返回 undefined
 //     if (source === null) return null; // 返回 null
@@ -130,9 +128,4 @@ function getUrlParam(key) {
 // // 使用 module.exports 來導出函數
 // module.exports = { clone, type, getUrlParam };
 
-const _clone = clone;
-export { _clone as clone };
-const _getUrlParam = getUrlParam;
-export { _getUrlParam as getUrlParam };
-const _type = type;
-export { _type as type };
+export { clone, getUrlParam, type };
