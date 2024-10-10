@@ -52,3 +52,6 @@ $ npm run build
 ```bash
 $ npm test
 ```
+
+![example workflow]
+(https://github.com/3qberlin/Test/actions/Node.js CI/ci.yambadge.svg)
