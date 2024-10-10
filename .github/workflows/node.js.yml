@@ -10,19 +10,32 @@ on:
     branches: [ "ESM" ]
 
 jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v4
+       with:
+        fetch-depth: 0
+     - uses: wagoid/commitlint-github-action@v4
   lint:
+    needs: commitlint
     runs-on: ubuntu-latest # 指定執行環境
     steps:
-    - uses: actions/checkout@v4
-    - name: Run linter
-      run: npm run lint
-
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint:prettier
+      - run: npm run lint
   test:
     needs: lint # 相依關係
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [18.x, 20.x, 22.x]
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
@@ -31,7 +44,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm test
+    - run: npm run build
+    - run: npm run test
 
   build:
     runs-on: ubuntu-latest
