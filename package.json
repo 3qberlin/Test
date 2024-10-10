@@ -7,7 +7,7 @@
     "build:aio": "rollup -c config/rollup.config.aio.js",
     "build": "npm run build:self && npm run build:esm && npm run build:aio",
     "prepare": "husky install",
-    "lint": "eslint src config test",
+    "lint": "eslint src config test.js",
     "lint:prettier": "prettier --check 'src/index.js'",
     "ci": "commit",
     "cz": "git-cz"
