@@ -1,7 +1,3 @@
-// export default {
-//   '**/*.js': ['eslint --cache'],
-// };
-// eslint-disable-next-line no-undef
-module.exports = {
+export default {
   '**/*.js': ['eslint --cache'],
 };
