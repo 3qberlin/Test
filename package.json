@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc mocha",
     "build:self": "rollup -c config/rollup.config.js",
