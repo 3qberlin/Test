@@ -7,7 +7,7 @@
 透過 npm 下載安裝程式
 
 ```bash
-$ npm install clone
+$ npm install 3qberlin
 ```
 
 如果使用 Node.js 環境
